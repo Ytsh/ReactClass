@@ -17,12 +17,20 @@ export function MyButton(){
 function App(props) {
   const [pantCount,setPantCount] = useState(0);
   const [tshirtCount,setTshirtCount] = useState(0);
-    function increment(){
-        setCount(count+1);
+    function incrementPant(){
+      setPantCount(pantCount+1);
     }
-    function decrement(){
-        if(count>0){
-            setCount(count-1);
+    function decrementPant(){
+        if(pantCount>0){
+          setPantCount(pantCount-1);
+        }
+    }
+    function incrementTshirt(){
+      setTshirtCount(tshirtCount+1);
+    }
+    function decrementTshirt(){
+        if(tshirtCount>0){
+          setTshirtCount(tshirtCount-1);
         }
     }
   let val = "this is a message to child";
@@ -46,9 +54,9 @@ function App(props) {
     </div>
     {/* < Profile /> */}
 
-    <Counter count={count} increment={increment} decrement={decrement} /> {/* Pant */}
+    <Counter count={pantCount} increment={incrementPant} decrement={decrementPant} /> {/* Pant */}
     <br/>
-    <Counter count={count} increment={increment} decrement={decrement}  /> {/* Tshirt */}
+    <Counter count={tshirtCount} increment={incrementTshirt} decrement={decrementTshirt}  /> {/* Tshirt */}
     </>
   );
 }
