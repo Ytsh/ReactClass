@@ -7,9 +7,11 @@ import Ptag from './ChildComponent';
 import Counter from './Counter'
 import Lists from './Lists'
 
+
+
 let val = "somethung";
-let pantCount, tshirtCount;
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
 

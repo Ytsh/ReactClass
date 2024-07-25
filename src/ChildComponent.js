@@ -16,7 +16,9 @@ import React from 'react';
 function PTag({message}){
     let val = message
     return (
+        <>
         <p>{val}</p>
+        </>
     )
 }
 

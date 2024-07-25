@@ -14,25 +14,9 @@ export function MyButton(){
 }
 //supporting code
 
-function App(props) {
-  const [pantCount,setPantCount] = useState(0);
-  const [tshirtCount,setTshirtCount] = useState(0);
-    function incrementPant(){
-      setPantCount(pantCount+1);
-    }
-    function decrementPant(){
-        if(pantCount>0){
-          setPantCount(pantCount-1);
-        }
-    }
-    function incrementTshirt(){
-      setTshirtCount(tshirtCount+1);
-    }
-    function decrementTshirt(){
-        if(tshirtCount>0){
-          setTshirtCount(tshirtCount-1);
-        }
-    }
+function App() {
+  
+    
   let val = "this is a message to child";
 
   //login bhayo re, either admin or user,.. admin le chai button dekhos, user le chai this is a message to child dekhos re
@@ -40,6 +24,17 @@ function App(props) {
   let context;
   let isAdmin = false //this is a user
   context = isAdmin ? <MyButton/> : <Ptag message={val}/> 
+  const [pantCount, setPantCount] = useState('');
+  const [shirtCount, setShirtCount] = useState('')
+
+  function getPantCount(pantCount){
+    setPantCount(pantCount);
+    console.log(pantCount);
+  }
+  function getShirtCount (shirtCount){
+    setShirtCount(shirtCount);
+    console.log(shirtCount);
+  }
   //supporting code
   return (
     <>
@@ -53,10 +48,12 @@ function App(props) {
       {/* {context} */}
     </div>
     {/* < Profile /> */}
-
-    <Counter count={pantCount} increment={incrementPant} decrement={decrementPant} /> {/* Pant */}
+    {/* <Ptag message={val} /> */}
     <br/>
-    <Counter count={tshirtCount} increment={incrementTshirt} decrement={decrementTshirt}  /> {/* Tshirt */}
+    Pant : <Counter getCountValue = {getPantCount}  /> 
+    <br/>
+    Shirt: <Counter  getCountValue = {getShirtCount}   /> 
+    <br/>
     </>
   );
 }
